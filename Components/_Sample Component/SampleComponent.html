@@ -1,0 +1,26 @@
+﻿
+
+{{vm.person}} - Will output Havelock Vetinari
+<a href="" ng-click="vm.doCoolStuff()">Do Cool Stuff</a> - Will fire the method doCoolStuff() in the controller
+
+How to include this directive in another component and pass a string of "A String" to the scope variable test which
+<sample-component test="'A String'"></sample-component>
+{{vm.test}} - Will output "A String" which was passed via the above reference
+
+Sample of how to use ng-repeat with a directive and pass the item property down to the component.
+<sample-component test="item" ng-repeat="item in items"></sample-component>
+
+
+
+Sample Transclusion
+<sample-component>Some cool stuff</sample-component>
+
+Include the ng-transclude tag in your directive which will output the transcluded content from the above call
+If you include anything in the transclude tag and don't leave it blank, it will be used for default content if nothing is transcluded
+<ng-transclude>
+    Some cool stuff
+</ng-transclude>
+
+When to use transclusion instead of a directive:
+-Transclusion lets you keep your html/components/etc in the same view 
+-Directives are more useful for passing single data sets

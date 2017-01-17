@@ -1,0 +1,34 @@
+﻿<div class="container">
+
+    <a ui-sref="LayoutMain.AccuracyDashboard" class="pull-xs-right goBack"><strong><i class="fa fa-caret-left"></i> Go Back</strong> <span class=" hidden-sm-down">to Accuracy Dashboard</span></a>
+    <h1 class="title"><i class="fa fa-search-plus"></i> Review Documents</h1>
+    <div class="card">
+        <div class="card-block">
+
+            <div class="alert alert-danger icon" ng-bind="vm.Error" ng-show="vm.Error"></div>
+
+            <div class="clearfix">
+                <h2 class="pull-md-left"><i class="fa fa-file" aria-hidden="true"></i> <strong ng-bind="vm.Document.DocName"></strong></h2>
+
+                <div class="btn-group btn-group-nav pull-md-right" role="group">
+                    <button ng-click="vm.ApproveDoc()" type="button" class="btn btn-sm btn-green">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i> <span class="hidden-sm-down">Approve</span>
+                    </button>
+                    <button ng-click="vm.ModalApproveAs()" type="button" class="btn btn-sm btn-blue">
+                        <i class="fa fa-thumbs-up"></i> <span class="hidden-sm-down">Approve As</span>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-red">
+                        <i class="fa fa-thumbs-down" aria-hidden="true"></i> <span class="hidden-sm-down">Decline</span>
+                    </button>
+                </div>
+            </div>
+                
+            <hr />
+            <div>
+                <iframe id="frame1" width="100%" height="700px;" src="{{vm.DocumentURL}}"></iframe>
+            </div>
+        </div>
+
+      
+    </div>
+</div>

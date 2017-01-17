@@ -1,0 +1,42 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" ng-click="vm.close()"> <span aria-hidden="true">&times;</span></button>
+    <h3 class="modal-title" ><i class="fa fa-thumbs-up"></i> Approve As</h3>
+</div>
+
+<div class="modal-body" id="modal-body">
+
+    <div class="alert alert-danger icon" ng-show="vm.Error">Error approving document.</div>
+
+    <h5>What type of document is this?</h5>
+    <p>
+        <div class="selectBorrowersBox">
+            <select id="selectApproveAs" class="form-control" ng-model="vm.reviewDocData.isAcceptAs">
+                <option ng-repeat="doc in ::vm.MarkAsDocList track by $index" ng-value="::doc" ng-bind="::doc"></option>
+            </select>
+        </div>
+    </p>
+    <div ng-if="!loanCurrent.borrowers">
+        <h5>Does the borrower still need to provide <strong ng-bind="vm.ModalData.DocName"></strong>?</h5>
+        <fieldset class="form-group">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input checked type="radio" class="form-check-input ng-pristine ng-untouched ng-valid ng-not-empty" name="optionsRadios" value="1" ng-checked="true"> Yes
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input ng-pristine ng-untouched ng-valid ng-not-empty" name="optionsRadios" value="2"> No
+                </label>
+            </div>
+        </fieldset>
+    </div>
+    <h5>Add a message for the processing unit.</h5>
+    <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" id="notesToBorrower" rows="2" ng-model="vm.reviewDocData.notes"></textarea>
+</div>
+
+<div class="modal-footer">
+    <a href="" ng-click="vm.close()" aria-label="Close" class="pull-xs-left">Cancel</a>
+    <button type="button" class="btn btn-info" aria-label="Close" ng-click="vm.ApproveAsDoc()">
+        Submit
+    </button>
+</div>
